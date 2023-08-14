@@ -1,0 +1,634 @@
+databases:
+  dw_dev_ingest:
+    comment: "Dev Ingest - Cloned from Prod"
+    privileges:
+      database:
+        read:
+          roles:
+            - dev_ingest_read_role
+  dw_uat_ingest:
+    comment: "UAT Ingest - Cloned from Prod"
+    privileges:
+      database:
+        read:
+          roles:
+            - uat_ingest_read_role
+  dw_prod_ingest:
+    comment: "Prod Ingest"
+    privileges:
+      database:
+        read:
+          roles:
+            - prod_ingest_read_role
+        write:
+          roles:
+            - prod_ingest_admin_role
+  dw_dev_clean:
+    comment: "Dev Clean"
+    privileges:
+      database:
+        read:
+          roles:
+            - dev_transform_read_role
+        write:
+          roles:
+            - dev_transform_admin_role
+  dw_uat_clean:
+    comment: "UAT Clean"
+    privileges:
+      database:
+        read:
+          roles:
+            - uat_transform_read_role
+        write:
+          roles:
+            - uat_transform_admin_role
+  dw_prod_clean:
+    comment: "Prod Clean"
+    privileges:
+      database:
+        read:
+          roles:
+            - prod_transform_read_role
+        write:
+          roles:
+            - prod_transform_admin_role
+  dw_dev_normalize:
+    comment: "Dev Normalize"
+    privileges:
+      database:
+        read:
+          roles:
+            - dev_transform_read_role
+        write:
+          roles:
+            - dev_transform_admin_role
+  dw_uat_normalize:
+    comment: "UAT Normalize"
+    privileges:
+      database:
+        read:
+          roles:
+            - uat_transform_read_role
+        write:
+          roles:
+            - uat_transform_admin_role
+  dw_prod_normalize:
+    comment: "Prod Normalize"
+    privileges:
+      database:
+        read:
+          roles:
+            - prod_transform_read_role
+        write:
+          roles:
+            - prod_transform_admin_role
+  dw_dev_integrate:
+    comment: "Dev Integrate"
+    privileges:
+      database:
+        read:
+          roles:
+            - dev_transform_read_role
+        write:
+          roles:
+            - dev_transform_admin_role
+  dw_uat_integrate:
+    comment: "UAT Integrate"
+    privileges:
+      database:
+        read:
+          roles:
+            - uat_transform_read_role
+        write:
+          roles:
+            - uat_transform_admin_role
+  dw_prod_integrate:
+    comment: "Prod Integrate"
+    privileges:
+      database:
+        read:
+          roles:
+            - prod_transform_read_role
+        write:
+          roles:
+            - prod_transform_admin_role
+  dw_dev_analyze:
+    comment: "Dev Analyze"
+    privileges:
+      database:
+        read:
+          roles:
+            - dev_analyze_read_role
+        write:
+          roles:
+            - dev_analyze_admin_role
+  dw_uat_analyze:
+    comment: "UAT Analyze"
+    privileges:
+      database:
+        read:
+          roles:
+            - uat_analyze_read_role
+        write:
+          roles:
+            - uat_analyze_admin_role
+  dw_prod_analyze:
+    comment: "Prod Analyze"
+    privileges:
+      database:
+        read:
+          roles:
+            - prod_analyze_read_role
+        write:
+          roles:
+            - prod_analyze_admin_role
+  dw_dev_egest:
+    comment: "Dev Egest"
+    privileges:
+      database:
+        read:
+          roles:
+            - dev_egest_read_role
+        write:
+          roles:
+            - dev_egest_admin_role
+  dw_uat_egest:
+    comment: "UAT Egest"
+    privileges:
+      database:
+        read:
+          roles:
+            - uat_egest_read_role
+        write:
+          roles:
+            - uat_egest_admin_role
+  dw_prod_egest:
+    comment: "Prod Egest"
+    privileges:
+      database:
+        read:
+          roles:
+            - prod_egest_read_role
+        write:
+          roles:
+            - prod_egest_admin_role
+  dw_dev_report:
+    comment: "Dev Report"
+    privileges:
+      database:
+        read:
+          roles:
+            - dev_report_read_role
+        write:
+          roles:
+            - dev_report_admin_role
+  dw_uat_report:
+    comment: "UAT Report"
+    privileges:
+      database:
+        read:
+          roles:
+            - uat_report_read_role
+        write:
+          roles:
+            - uat_report_admin_role
+  dw_prod_report:
+    comment: "Prod Report"
+    privileges:
+      database:
+        read:
+          roles:
+            - prod_report_read_role
+        write:
+          roles:
+            - prod_report_admin_role
+  dw_dev_log:
+    comment: "Dev log"
+    privileges:
+      database:
+        read:
+          roles:
+            - dev_transform_read_role
+        write:
+          roles:
+            - dev_transform_admin_role
+  dw_uat_log:
+    comment: "UAT log"
+    privileges:
+      database:
+        read:
+          roles:
+            - uat_transform_read_role
+        write:
+          roles:
+            - uat_transform_admin_role
+  dw_prod_log:
+    comment: "Prod log"
+    privileges:
+      database:
+        read:
+          roles:
+            - prod_transform_read_role
+        write:
+          roles:
+            - prod_transform_admin_role
+
+warehouses:
+  dev_compute_wh:
+    comment: "Dev warehouse for ad-hoc queries."
+    size: "x-small"
+    auto_suspend: 60
+    auto_resume: true
+  uat_compute_wh:
+    comment: "UAT warehouse for ad-hoc queries."
+    size: "x-small"
+    auto_suspend: 60
+    auto_resume: true
+  prod_compute_wh:
+    comment: "Prod warehouse for ad-hoc queries."
+    size: "x-small"
+    auto_suspend: 60
+    auto_resume: true
+  dev_dbt_wh:
+    comment: "Dev dbt warehouse."
+    size: "x-small"
+    auto_suspend: 60
+    auto_resume: true
+    privileges:
+      roles:
+        - dev_dbt_service_role
+  uat_dbt_wh:
+    comment: "UAT dbt warehouse."
+    size: "x-small"
+    auto_suspend: 60
+    auto_resume: true
+    privileges:
+      roles:
+        - uat_dbt_service_role
+  prod_dbt_wh:
+    comment: "Prod dbt warehouse."
+    size: "x-small"
+    auto_suspend: 60
+    auto_resume: true
+    privileges:
+      roles:
+        - prod_dbt_service_role
+  prod_ingest_wh:
+    comment:  "Ingest warehouse."
+    size: "x-small"
+    auto_suspend: 60
+    auto_resume: true
+    privileges:
+      roles:
+        - prod_ingest_service_role
+  dev_egress_wh:
+    comment: "Dev Egest warehouse."
+    size: "x-small"
+    auto_suspend: 60
+    auto_resume: true
+    privileges:
+      roles:
+        - dev_egest_service_role
+  uat_egress_wh:
+    comment: "UAT Egest warehouse."
+    size: "x-small"
+    auto_suspend: 60
+    auto_resume: true
+    privileges:
+      roles:
+        - uat_egest_service_role
+  prod_egress_wh:
+    comment: "Prod Egest warehouse."
+    size: "x-small"
+    auto_suspend: 60
+    auto_resume: true
+    privileges:
+      roles:
+        - prod_egest_service_role
+  dev_pbi_wh:
+    comment: "Dev PBI warehouse."
+    size: "x-small"
+    auto_suspend: 60
+    auto_resume: true
+    privileges:
+      roles:
+        - dev_report_service_role
+  uat_pbi_wh:
+    comment: "UAT PBI warehouse."
+    size: "x-small"
+    auto_suspend: 60
+    auto_resume: true
+    privileges:
+      roles:
+        - uat_report_service_role
+  prod_pbi_wh:
+    comment: "Prod PBI warehouse."
+    size: "x-small"
+    auto_suspend: 60
+    auto_resume: true
+    privileges:
+      roles:
+        - prod_report_service_role
+
+users:
+  dev_dbt_user:
+    comment: "dbt user to build Snowflake models."
+    default_role: "dev_dbt_service_role"
+    default_warehouse: "dev_dbt_wh"
+    disabled: false
+    display_name: "Dev dbt"
+    login_name: "dev_dbt_user"
+  uat_dbt_user:
+    comment: "dbt user to build Snowflake models."
+    default_role: "uat_dbt_service_role"
+    default_warehouse: "uat_dbt_wh"
+    disabled: false
+    display_name: "UAT dbt"
+    login_name: "uat_dbt_user"
+  prod_dbt_user:
+    comment: "dbt user to build Snowflake models."
+    default_role: "prod_dbt_service_role"
+    default_warehouse: "prod_dbt_wh"
+    disabled: false
+    display_name: "Prod dbt"
+    login_name: "prod_dbt_user"
+  prod_ingest_user:
+    comment: "User to ingest data."
+    default_role: "prod_ingest_service_role"
+    default_warehouse: "prod_ingest_wh"
+    disabled: false
+    display_name: "Prod"
+    login_name: " prod_ingest_user"
+  dev_egress_user:
+    comment: "User to egest Dev data."
+    default_role: "dev_egest_service_role"
+    default_warehouse: "dev_egress_wh"
+    disabled: false
+    display_name: "Dev"
+    login_name: "dev_egress_user"
+  uat_egress_user:
+    comment: "User to egest UAT data."
+    default_role: "uat_egest_service_role"
+    default_warehouse: "uat_egress_wh"
+    disabled: false
+    display_name: "UAT"
+    login_name: "uat_egress_user"
+  prod_egress_user:
+    comment: "User to egest Prod data."
+    default_role: "prod_egest_service_role"
+    default_warehouse: "prod_egress_wh"
+    disabled: false
+    display_name: "Prod"
+    login_name: "prod_egress_user"
+  dev_pbi_user:
+    comment: "User to report Dev data."
+    default_role: "dev_report_service_role"
+    default_warehouse: "dev_pbi_wh"
+    disabled: false
+    display_name: "Dev"
+    login_name: "dev_pbi_user"
+  uat_pbi_user:
+    comment: "User to report UAT data."
+    default_role: "uat_report_service_role"
+    default_warehouse: "uat_pbi_wh"
+    disabled: false
+    display_name: "UAT"
+    login_name: "uat_pbi_user"	
+  prod_pbi_user:
+    comment: "User to report Prod data."
+    default_role: "prod_report_service_role"
+    default_warehouse: "prod_pbi_wh"
+    disabled: false
+    display_name: "Prod"
+    login_name: "prod_pbi_user"    
+
+roles:
+  dev_ingest_read_role:
+    comment: "Dev ingestion layer's read only access."
+    grant_to:
+      roles:
+        - dev_admin_role
+  uat_ingest_read_role:
+    comment: "UAT ingestion layer's read only access."
+    grant_to:
+      roles:
+        - uat_admin_role
+  prod_ingest_read_role:
+    comment: "Prod ingestion layer's read only access."
+    grant_to:
+      roles:
+        - prod_transformer_role
+  prod_ingest_admin_role:
+    comment: "Ingestion layer's highest level of access."
+    grant_to:
+      roles:
+        - prod_admin_role
+        - prod_ingest_service_role
+  dev_transform_read_role:
+    comment: "Transform dev layer's read only access."
+    grant_to:
+      roles:
+        - dev_transform_admin_role
+  uat_transform_read_role:
+    comment: "Transform uat layer's read only access."
+    grant_to:
+      roles:
+        - uat_transform_admin_role
+  prod_transform_read_role:
+    comment: "Transform prod layer's read only access."
+    grant_to:
+      roles:
+        - prod_transform_admin_role
+  dev_transform_admin_role:
+    comment: "Transform dev layer's highest level of access."
+    grant_to:
+      roles:
+        - dev_admin_role
+  uat_transform_admin_role:
+    comment: "Transform uat layer's highest level of access."
+    grant_to:
+      roles:
+        - uat_admin_role
+  prod_transform_admin_role:
+    comment: "Transform prod layer's highest level of access."
+    grant_to:
+      roles:
+        - prod_transformer_role
+  dev_analyze_read_role:
+    comment: "Analyze dev layer's read only access."
+    grant_to:
+      roles:
+        - dev_analyze_admin_role
+  uat_analyze_read_role:
+    comment: "Analyze uat layer's read only access."
+    grant_to:
+      roles:
+        - uat_analyze_admin_role
+  prod_analyze_read_role:
+    comment: "Analyze prod layer's read only access."
+    grant_to:
+      roles:
+        - prod_analyze_admin_role
+  dev_analyze_admin_role:
+    comment: "Analyze dev layer's highest level of access."
+    grant_to:
+      roles:
+        - dev_admin_role
+  uat_analyze_admin_role:
+    comment: "Analyze uat layer's highest level of access."
+    grant_to:
+      roles:
+        - uat_admin_role
+  prod_analyze_admin_role:
+    comment: "Analyze prod layer's highest level of access."
+    grant_to:
+      roles:
+        - prod_transformer_role
+  dev_egest_read_role:
+    comment: "Egest dev layer's read only access."
+    grant_to:
+      roles:
+        - dev_egest_admin_role
+        - dev_egest_service_role
+  uat_egest_read_role:
+    comment: "Egest uat layer's read only access."
+    grant_to:
+      roles:
+        - uat_egest_admin_role
+        - uat_egest_service_role
+  prod_egest_read_role:
+    comment: "Egest prod layer's read only access."
+    grant_to:
+      roles:
+        - prod_egest_admin_role
+        - prod_egest_service_role
+  dev_egest_admin_role:
+    comment: "Egest dev layer's highest level of access."
+    grant_to:
+      roles:
+        - dev_admin_role
+  uat_egest_admin_role:
+    comment: "Egest uat layer's highest level of access."
+    grant_to:
+      roles:
+        - uat_admin_role
+  prod_egest_admin_role:
+    comment: "Egest prod layer's highest level of access."
+    grant_to:
+      roles:
+        - prod_transformer_role
+  dev_report_read_role:
+    comment: "report dev layer's read only access."
+    grant_to:
+      roles:
+        - dev_report_admin_role
+        - dev_report_service_role
+  uat_report_read_role:
+    comment: "report uat layer's read only access."
+    grant_to:
+      roles:
+        - uat_report_admin_role
+        - uat_report_service_role
+  prod_report_read_role:
+    comment: "report prod layer's read only access."
+    grant_to:
+      roles:
+        - prod_report_admin_role
+        - prod_report_service_role
+  dev_report_admin_role:
+    comment: "report dev layer's highest level of access."
+    grant_to:
+      roles:
+        - dev_admin_role
+  uat_report_admin_role:
+    comment: "report uat layer's highest level of access."
+    grant_to:
+      roles:
+        - uat_admin_role
+  prod_report_admin_role:
+    comment: "report prod layer's highest level of access."
+    grant_to:
+      roles:
+        - prod_transformer_role
+  env_admin_role:
+    comment: "All environment's highest level of access. Creator of all databases"
+    grant_to:
+      roles:
+        - sysadmin
+  dev_admin_role:
+    comment: "Dev environment's highest level of access. Read-only on Ingest"
+    grant_to:
+      roles:
+        - env_admin_role
+        - dev_dbt_service_role
+  uat_admin_role:
+    comment: "UAT environment's highest level of access. Read-only on Ingest"
+    grant_to:
+      roles:
+        - env_admin_role
+        - uat_dbt_service_role
+  prod_transformer_role:
+    comment: "Prod environment's tranformation role. Read-only on Ingest"
+    grant_to:
+      roles:
+        - prod_dbt_service_role
+        - prod_admin_role
+  prod_admin_role:
+    comment: "Prod environment's highest level of access."
+    grant_to:
+      roles:
+        - env_admin_role
+  prod_ingest_service_role:
+    comment: "Data source service role."
+    grant_to:
+      users:
+        - prod_ingest_user
+  dev_egest_service_role:
+    comment: "Dev data destination service role."
+    grant_to:
+      users:
+        - dev_egress_user
+  uat_egest_service_role:
+    comment: "UAT data destination service role."
+    grant_to:
+      users:
+        - uat_egress_user
+  prod_egest_service_role:
+    comment: "Prod data destination service role."
+    grant_to:
+      users:
+        - prod_egress_user
+  dev_report_service_role:
+    comment: "Dev data destination service role."
+    grant_to:
+      users:
+        - dev_egress_user
+        - dev_pbi_user
+  uat_report_service_role:
+    comment: "UAT data destination service role."
+    grant_to:
+      users:
+        - uat_egress_user
+        - uat_pbi_user
+  prod_report_service_role:
+    comment: "Prod data destination service role."
+    grant_to:
+      users:
+        - prod_egress_user
+        - prod_pbi_user
+  dev_dbt_service_role:
+    comment: "dbt dev service role."
+    grant_to:
+      users:
+        - dev_dbt_user
+  uat_dbt_service_role:
+    comment: "sbt UAT service role."
+    grant_to:
+      users:
+        - uat_dbt_user
+  prod_dbt_service_role:
+    comment: "dbt prod service role."
+    grant_to:
+      users:
+        - prod_dbt_user
