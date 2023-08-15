@@ -7,6 +7,13 @@ terraform {
       version = "0.47.0"
     }
   }
+  backend "remote" {
+    organization = "OTPP"
+
+    workspaces {
+      name = "OTPP"
+    }
+  }
 }
 provider "snowflake" {
   alias = "useradmin"
