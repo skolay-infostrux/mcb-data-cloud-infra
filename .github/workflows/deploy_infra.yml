@@ -40,22 +40,13 @@ jobs:
     - name: Initialize Terraform
       run: |
         terraform init
+
     - name: Format terraform
       run: terraform fmt -check
 
     - name: Validate terraform
       run: terraform validate
 
-    - name: Plan terraform
-      run: |
-        terraform plan -out=./output.tfplan
-    # Publish output
-    - name: Publish artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: terraform-plan-file
-        path: ./output.tfplan
-
     - name: Apply terraform
       run: |
-        terraform apply -auto-approve ./output.tfplan
+        terraform apply
