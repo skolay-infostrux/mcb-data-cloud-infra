@@ -49,4 +49,4 @@ jobs:
 
     - name: Apply terraform
       run: |
-        terraform apply
+        terraform apply -auto-approve
