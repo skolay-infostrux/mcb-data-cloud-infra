@@ -7,7 +7,7 @@ terraform {
       version = "0.47.0"
     }
   }
-
+}
 provider "snowflake" {
   alias = "useradmin"
   role  = "USERADMIN"
