@@ -1,4 +1,4 @@
-name: Deploy OTPP Demo Infra
+name: Plan OTPP Demo Infra
 on:
   workflow_dispatch:
     inputs:
