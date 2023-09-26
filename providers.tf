@@ -11,7 +11,7 @@ terraform {
     organization = "OTPP"
 
     workspaces {
-      name = "OTPP"
+      name = "OTPP_2"
     }
   }
 }
