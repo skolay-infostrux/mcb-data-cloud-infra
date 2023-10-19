@@ -15,6 +15,7 @@ jobs:
   Deploy:
     name: Deploy Terraform
     runs-on: ubuntu-latest
+    environment: dev    
     env:
       SNOWFLAKE_ACCOUNT: ${{ secrets.snowflake_account }}
       SNOWFLAKE_REGION: ${{ secrets.snowflake_region }}
