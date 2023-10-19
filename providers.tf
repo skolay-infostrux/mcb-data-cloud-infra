@@ -8,10 +8,10 @@ terraform {
     }
   }
   backend "remote" {
-    organization = "OTPP"
+    organization = "MCBank"
 
     workspaces {
-      name = "OTPP_2"
+      name = "MCB"
     }
   }
 }
