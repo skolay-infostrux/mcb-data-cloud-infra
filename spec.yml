@@ -153,16 +153,6 @@ databases:
         write:
           roles:
             - uat_transform_admin_role
-  dw_prod_log:
-    comment: "Prod log"
-    privileges:
-      database:
-        read:
-          roles:
-            - prod_transform_read_role
-        write:
-          roles:
-            - prod_transform_admin_role
 
 warehouses:
   dev_compute_wh:
@@ -283,13 +273,6 @@ users:
     disabled: false
     display_name: "UAT"
     login_name: "uat_egress_user"
-  prod_egress_user:
-    comment: "User to egest Prod data."
-    default_role: "prod_egest_service_role"
-    default_warehouse: "prod_egress_wh"
-    disabled: false
-    display_name: "Prod"
-    login_name: "prod_egress_user"
   dev_pbi_user:
     comment: "User to report Dev data."
     default_role: "dev_report_service_role"
@@ -303,14 +286,7 @@ users:
     default_warehouse: "uat_pbi_wh"
     disabled: false
     display_name: "UAT"
-    login_name: "uat_pbi_user"	
-  prod_pbi_user:
-    comment: "User to report Prod data."
-    default_role: "prod_report_service_role"
-    default_warehouse: "prod_pbi_wh"
-    disabled: false
-    display_name: "Prod"
-    login_name: "prod_pbi_user"    
+    login_name: "uat_pbi_user"
 
 roles:
   dev_ingest_read_role:
