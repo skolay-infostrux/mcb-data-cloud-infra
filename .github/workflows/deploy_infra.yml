@@ -1,4 +1,4 @@
-name: Deploy OTPP Demo Infra
+name: Deploy MC Bank Demo Infra
 on:
   workflow_dispatch:
     inputs:
