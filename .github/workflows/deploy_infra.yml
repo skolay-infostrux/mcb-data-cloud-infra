@@ -1,4 +1,4 @@
-name: Deploy MC Bank Demo Infra
+name: Deploy MC Bank Infra
 on:
   workflow_dispatch:
     inputs:
