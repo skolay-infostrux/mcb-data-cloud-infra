@@ -42,6 +42,9 @@ jobs:
       run: |
         terraform init
 
+    - name: Remove terraform state file
+      run: terraform state rm
+
     - name: Format terraform
       run: terraform fmt -check
 
