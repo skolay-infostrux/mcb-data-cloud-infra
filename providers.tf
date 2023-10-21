@@ -11,7 +11,7 @@ terraform {
     organization = "MCBank"
 
     workspaces {
-      name = "MCB"
+      name = "MCB_DEV"
     }
   }
 }
