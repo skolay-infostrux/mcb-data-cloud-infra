@@ -8,7 +8,7 @@ terraform {
     }
   }
   backend "remote" {
-    organization = "MCBank"
+    organization = "MCBank_Demo"
 
     workspaces {
       name = "MCB_DEV"
